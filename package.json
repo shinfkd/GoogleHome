@@ -1,0 +1,22 @@
+{
+  "name": "googlehome",
+  "version": "1.0.0",
+  "description": "Google Home for my home",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinfkd/GoogleHome.git"
+  },
+  "author": "shinfkd",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shinfkd/GoogleHome/issues"
+  },
+  "homepage": "https://github.com/shinfkd/GoogleHome#readme",
+  "dependencies": {
+    "google-home-notifier": "^1.2.0"
+  }
+}
