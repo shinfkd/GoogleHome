@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/shinfkd/GoogleHome#readme",
   "dependencies": {
-    "google-home-notifier": "^1.2.0"
+    "google-home-notifier": "^1.2.0",
+    "moment": "^2.20.1"
   }
 }

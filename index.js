@@ -1,8 +1,13 @@
-const googlehome = require('google-home-notifier')
+const moment = require('moment');
+const googlehome = require('google-home-notifier');
 const language = 'ja';
 
-googlehome.device('Google-Home', language);
+var time = moment().format('YYYY-MM-DD');
+notify(time);
 
-googlehome.notify('こんにちは。私はグーグルホームです。', function(res) {
-  console.log(res);
-});
+function notify(message) {
+  googlehome.device('Google-Home', language);
+  googlehome.notify(message, function(res) {
+    console.log(res);
+  });
+}
