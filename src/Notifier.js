@@ -5,6 +5,7 @@ class Notifier {
   }
 
   notify(message) {
+    console.log(message);
     this.notifier.notify(message, (res) => {
       console.log(res);
     });
