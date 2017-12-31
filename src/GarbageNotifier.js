@@ -5,6 +5,13 @@ class GarbageNotifier extends Notifier {
     super();
     this.moment = require('moment');
     this.moment.locale('ja');
+    this.currentDate = this.moment();
+    if (this.isPM()) {
+      this.targetDate = this.currentDate.add(1, 'd');
+    } else {
+      this.targetDate = this.currentDate;
+    }
+
     this.garbageDays = {
       1: '燃えるゴミの日',
       2: '資源ゴミの日',
@@ -14,19 +21,21 @@ class GarbageNotifier extends Notifier {
   }
 
   weekday() {
-    return this.moment().format('E');
+    return this.targetDate.format('E');
   }
 
   weekdayOrdinal() {
-    const day = this.moment().format('D');
+    const day = this.targetDate.format('D');
     return Math.trunc((day / 7) + 0.9);
   }
 
   garbageNotify() {
     const message = this.getMessage(this.garbageDays, this.weekday());
-    if (message !== undefined) {
-      this.notify('今日は' + message + 'です。');
+    if (message === undefined) {
+      return;
     }
+    const dateMessage = this.isPM() ? '明日は' : '今日は'; 
+    this.notify(dateMessage + message + 'です。');
   }
 
   getMessage(map, key) {
@@ -37,6 +46,10 @@ class GarbageNotifier extends Notifier {
     if (message !== undefined) {
       return message;
     }
+  }
+
+  isPM() {
+    return this.currentDate.format('H') > 12;
   }
 }
 module.exports = GarbageNotifier;
