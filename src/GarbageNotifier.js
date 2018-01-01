@@ -12,12 +12,7 @@ class GarbageNotifier extends Notifier {
       this.targetDate = this.currentDate;
     }
 
-    this.garbageDays = {
-      1: '燃えるゴミの日',
-      2: '資源ゴミの日',
-      4: '燃えるゴミの日',
-      5: {1: '不燃ゴミの日', 3: '不燃ゴミの日'}
-    }
+    this.garbageDay = require('./GarbageDay.json');
   }
 
   weekday() {
@@ -30,7 +25,7 @@ class GarbageNotifier extends Notifier {
   }
 
   garbageNotify() {
-    const message = this.getMessage(this.garbageDays, this.weekday());
+    const message = this.getMessage(this.garbageDay, this.weekday());
     if (message === undefined) {
       return;
     }
