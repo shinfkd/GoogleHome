@@ -1,4 +1,4 @@
-const GarbageNotifier = require('./src/GarbageNotifier');
-const notifier = new GarbageNotifier();
+const CollectionDayNotifier = require('./src/CollectionDayNotifier');
+const notifier = new CollectionDayNotifier();
 const weekday = notifier.weekday();
-notifier.garbageNotify();
+notifier.collectionDayNotify();

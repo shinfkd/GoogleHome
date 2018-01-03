@@ -1,6 +1,5 @@
 const Notifier = require('./Notifier');
-class GarbageNotifier extends Notifier {
-
+class CollectionDayNotifier extends Notifier {
   constructor() {
     super();
     this.moment = require('moment');
@@ -12,7 +11,7 @@ class GarbageNotifier extends Notifier {
       this.targetDate = this.currentDate;
     }
 
-    this.garbageDay = require('./GarbageDay.json');
+    this.collectionDay = require('./CollectionDay.json');
   }
 
   weekday() {
@@ -24,8 +23,8 @@ class GarbageNotifier extends Notifier {
     return Math.trunc((day / 7) + 0.9);
   }
 
-  garbageNotify() {
-    const message = this.getMessage(this.garbageDay, this.weekday());
+  collectionDayNotify() {
+    const message = this.getMessage(this.collectionDay, this.weekday());
     if (message === undefined) {
       return;
     }
@@ -47,4 +46,4 @@ class GarbageNotifier extends Notifier {
     return this.currentDate.format('H') > 12;
   }
 }
-module.exports = GarbageNotifier;
+module.exports = CollectionDayNotifier;
