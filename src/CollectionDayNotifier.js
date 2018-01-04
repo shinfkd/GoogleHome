@@ -23,13 +23,13 @@ class CollectionDayNotifier extends Notifier {
     return Math.trunc((day / 7) + 0.9);
   }
 
-  collectionDayNotify() {
+  notify() {
     const message = this.getMessage(this.collectionDay, this.weekday());
     if (message === undefined) {
       return;
     }
     const dateMessage = this.isPM() ? '明日は' : '今日は'; 
-    this.notify(dateMessage + message + 'です。');
+    super.notify(dateMessage + message + 'です。');
   }
 
   getMessage(map, key) {
