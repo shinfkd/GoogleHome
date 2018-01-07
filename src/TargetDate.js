@@ -1,8 +1,6 @@
 class TargetDate {
-  constructor() {
-    this.moment = require('moment');
-    this.moment.locale('ja');
-    this.currentDate = this.moment();
+  constructor(moment) {
+    this.currentDate = moment;
   }
 
   weekday() {

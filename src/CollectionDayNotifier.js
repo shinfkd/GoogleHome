@@ -1,10 +1,8 @@
 const Notifier = require('./Notifier');
-const TargetDate = require('./TargetDate');
 class CollectionDayNotifier extends Notifier {
-  constructor() {
+  constructor(targetDate) {
     super();
-
-    this.targetDate = new TargetDate();
+    this.targetDate = targetDate;
     this.collectionDay = require('./CollectionDay.json');
   }
 
