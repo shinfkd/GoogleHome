@@ -4,12 +4,12 @@ class TargetDate {
   }
 
   weekday() {
-    return this.date.format('E');
+    return this.date.isoWeekday();
   }
 
   weekdayOrdinal() {
-    const day = this.date.format('D');
-    return Math.trunc((day / 7) + 0.9);
+    const day = this.date.date();
+    return Math.trunc((day + 6) / 7);
   }
 
   isAM() {
