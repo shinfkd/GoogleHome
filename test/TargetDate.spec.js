@@ -44,4 +44,19 @@ describe('TargetDate', () => {
       assert.equal(targetDate.weekdayOrdinal(), 5);
     });
   });
+
+  describe('#isAM()', () => {
+    it('0時のときは午前中になる', () => {
+      targetDate = new TargetDate(moment('2018-01-01 00:00:00'));
+      assert.ok(targetDate.isAM());
+    });
+    it('11時59分59秒のときは午前中になる', () => {
+      targetDate = new TargetDate(moment('2018-01-01 11:59:59'));
+      assert.ok(targetDate.isAM());
+    });
+    it('12時00分00秒のときは午後になる', () => {
+      targetDate = new TargetDate(moment('2018-01-01 12:00:00'));
+      assert.equal(targetDate.isAM(), false);
+    });
+  });
 });

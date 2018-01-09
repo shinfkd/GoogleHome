@@ -13,7 +13,7 @@ class TargetDate {
   }
 
   isAM() {
-    return this.currentDate.format('H') < 12;
+    return this.currentDate.hour() < 12;
   }
 
   get date() {
