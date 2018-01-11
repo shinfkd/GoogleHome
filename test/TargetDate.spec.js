@@ -59,4 +59,15 @@ describe('TargetDate', () => {
       assert.equal(targetDate.isAM(), false);
     });
   });
+
+  describe('#date()', () => {
+    it('午前中の場合は対象日は現在日になる', () => {
+      targetDate = new TargetDate(moment('2018-01-01 11:00:00'));
+      assert.ok(targetDate.date.isSame(moment('2018-01-01 11:00:00')));
+    });
+    it('午後の場合は対象日は翌日になる', () => {
+      targetDate = new TargetDate(moment('2018-01-01 12:00:00'));
+      assert.ok(targetDate.date.isSame(moment('2018-01-02 12:00:00')));
+    });
+  });
 });
